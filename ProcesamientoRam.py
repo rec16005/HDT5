@@ -1,3 +1,7 @@
+# ProcesamientoRam.py
+# Cristopher Recinos 16005
+# Cristian Perez 16011
+
 import simpy
 import random
 
@@ -42,7 +46,10 @@ env = simpy.Environment()
 memoria = simpy.Resource(env,capacity=10)
 operaciones = simpy.Resource(env,capacity=3)
 tiempoMemoria = 0
-for i in range(3):
+cantidad = 3
+cantidadfloat = cantidad + 0.0
+for i in range(cantidad):
     env.process(operacion('operacion %d' %i,env,memoria))
 env.run(until=30)                
-print('total en inicio es',tiempoMemoria/3.0)
+print('el tiempo promedio es',tiempoMemoria/cantidadfloat)
+
